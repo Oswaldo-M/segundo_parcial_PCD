@@ -61,3 +61,15 @@ def validar_codigo(codigo):
     else:
         return "desconocido", False
 
+def main():
+    print("codigo,tipo,valido")
+    for linea in sys.stdin:
+        codigo = linea.strip()
+        if not codigo:
+            continue
+        tipo, es_valido = validar_codigo(codigo)
+        print(f"{codigo},{tipo},{'VALIDO' if es_valido else 'INVALIDO'}")
+
+
+if __name__ == "__main__":
+    main()

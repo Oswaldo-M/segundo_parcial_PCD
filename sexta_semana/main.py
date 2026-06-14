@@ -6,8 +6,8 @@ SERIES_VALIDAS = ['A','B','C','D','E']
 
 def detectar_tipo(codigo):
     #Detecta el tipo de codigo 
-    if re.match(r'^[A-za-z]{3}-\d{4}-[A-Za-Z]{2}',codigo):
-        return 'producto'
+    if re.match(r'^[A-Za-z]{3}-\d{4}-[A-Za-z]{2}$', codigo):
+     return 'producto'
     if re.match(r'^ENV-\d{4}-\d{2}-\d{2}-\d{6}$', codigo):
         return 'envio'
     if re.match(r'^EMP-[A-Za-z]{3}-\d{4}$', codigo):
@@ -24,7 +24,7 @@ def validar_producto(codigo):
 
 def validar_envio(codigo):
     #Valida rangos de fecha
-    m= re.match(r'ÊNV-(\d{4})-(\d{2})-(\d{2})-\d{6}$',codigo)
+    m= re.match(r'ENV-(\d{4})-(\d{2})-(\d{2})-\d{6}$',codigo)
     if not m:
         return False
     anio= int(m.group(1))
